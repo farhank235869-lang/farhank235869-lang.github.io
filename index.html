@@ -1,0 +1,249 @@
+here<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<title>Free Online Multi Calculator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+
+<style>
+
+/* BODY */
+body{
+margin:0;
+font-family:Arial;
+background:linear-gradient(135deg, #0f172a, #1e293b, #020617);
+color:#fff;
+overflow-x:hidden;
+}
+
+/* HEADER */
+.header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:15px 20px;
+background:#e5e5e5;
+color:#000;
+font-size:20px;
+font-weight:800;
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.title{
+flex:1;
+text-align:center;
+}
+
+.menu-icon{
+font-size:26px;
+cursor:pointer;
+}
+
+/* SIDE MENU */
+.side-menu{
+position:fixed;
+top:0;
+left:-250px;
+width:250px;
+height:100%;
+background:#1e293b;
+padding-top:60px;
+transition:0.3s;
+z-index:2000;
+}
+
+.side-menu a{
+display:block;
+color:#fff;
+padding:15px;
+text-decoration:none;
+}
+
+.side-menu a:hover{
+background:#0ea5e9;
+}
+
+/* CONTAINER */
+.container{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:15px;
+padding:15px;
+}
+
+/* CARD */
+.card{
+background:#1e293b;
+padding:15px;
+border-radius:12px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+/* BUTTON */
+button{
+width:100%;
+padding:12px;
+margin-top:10px;
+border:none;
+border-radius:8px;
+background:#38bdf8;
+color:#000;
+font-weight:bold;
+cursor:pointer;
+}
+
+button:hover{
+background:#0ea5e9;
+}
+
+/* SPLASH */
+#splash{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:#020617;
+display:flex;
+justify-content:center;
+align-items:center;
+z-index:9999;
+animation:fadeOut 1s ease forwards;
+animation-delay:3s;
+}
+
+#splash h1 span{
+display:block;
+font-size:38px;
+font-weight:900;
+color:#00ffcc;
+opacity:0;
+transform:translateY(40px);
+text-align:center;
+animation:showUp 0.6s ease forwards;
+}
+
+#splash h1 span:nth-child(1){animation-delay:0.3s;}
+#splash h1 span:nth-child(2){animation-delay:0.8s;}
+#splash h1 span:nth-child(3){animation-delay:1.3s;}
+
+@keyframes showUp{
+to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeOut{
+to{opacity:0;visibility:hidden;}
+}
+  .close-btn{
+position:absolute;
+top:15px;
+right:20px;
+font-size:22px;
+color:#fff;
+cursor:pointer;
+  }
+
+</style>
+</head>
+
+<body>
+
+<!-- SPLASH -->
+<div id="splash">
+<h1>
+<span>MULTI</span>
+<span>CALCULATOR</span>
+<span>BY FK</span>
+</h1>
+</div>
+
+<!-- HEADER -->
+<div class="header">
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+<div class="title">Multi Calculator by FK</div>
+</div>
+
+<!-- MENU -->
+<div id="sideMenu" class="side-menu">
+
+<div class="close-btn" onclick="toggleMenu()">✖</div>
+
+<a href="index.html">Home</a>
+<a href="about.html">About</a>
+<a href="contact.html">Contact</a>
+<a href="privacy.html">Privacy Policy</a>
+
+</div>
+<!-- CONTENT -->
+<div class="container">
+
+<div class="card">
+<a href="age.html"><button>Open Age Calculator</button></a>
+<p>Calculate your exact age instantly using your date of birth.</p>
+<p>Useful for forms and official purposes.</p>
+</div>
+
+<div class="card">
+<a href="emi.html"><button>Open EMI Calculator</button></a>
+<p>Helps in planning loans.</p>
+<p>Manage finances better.</p>
+</div>
+
+<div class="card">
+<a href="percentage.html"><button>Open Percentage Calculator</button></a>
+<p>Useful for marks and discounts.</p>
+<p>Daily calculations made easy.</p>
+</div>
+
+<div class="card">
+<a href="bmi.html"><button>Open BMI Calculator</button></a>
+<p>Understand your health condition.</p>
+<p>Check body fitness easily.</p>
+</div>
+
+<div class="card">
+<a href="discount.html"><button>Open Discount Calculator</button></a>
+<p>Perfect for shopping.</p>
+<p>Save money smartly.</p>
+</div>
+
+<div class="card">
+<a href="currency.html"><button>Open Currency Converter</button></a>
+<p>Convert currencies instantly.</p>
+<p>Supports multiple countries.</p>
+</div>
+
+<div class="card">
+<a href="unit.html"><button>Open Unit Converter</button></a>
+<p>Convert units like length, weight.</p>
+<p>Temperature and more supported.</p>
+</div>
+
+</div>
+
+<script>
+function toggleMenu(){
+  let menu = document.getElementById("sideMenu");
+  menu.style.left = (menu.style.left === "0px") ? "-250px" : "0px";
+}
+
+/* Splash sirf FIRST TIME show ho */
+window.onload = function() {
+  if(sessionStorage.getItem("visited")){
+    document.getElementById("splash").style.display = "none";
+  } else {
+    sessionStorage.setItem("visited", true);
+  }
+}
+                                                              </script>
+
+</body>
+  </html>

@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Currency Converter</title>
+
+<style>
+body{font-family:Arial;background:#0f172a;color:#fff;margin:0;}
+
+.box{
+max-width:600px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+text-align:center;
+}
+
+input,select,button{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+background:#38bdf8;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<div class="card">
+
+<h2>Currency Converter</h2>
+
+<input type="number" id="amount" placeholder="Enter amount">
+
+<select id="from"></select>
+<select id="to"></select>
+
+<button onclick="convert()">Convert</button>
+
+<p id="result"></p>
+
+<button onclick="history.back()">Back</button>
+
+</div>
+</div>
+
+<script>
+
+// 🔥 20 CURRENCIES
+const rates = {
+USD:1,
+PKR:280,
+EUR:0.92,
+GBP:0.78,
+AED:3.67,
+SAR:3.75,
+INR:83,
+CNY:7.2,
+JPY:150,
+USDT:1,
+CAD:1.35,
+AUD:1.50,
+TRY:32,
+MYR:4.7,
+SGD:1.35,
+THB:36,
+KRW:1300,
+RUB:90,
+BRL:5.0,
+ZAR:18
+};
+
+// 🔽 AUTO DROPDOWN
+let from = document.getElementById("from");
+let to = document.getElementById("to");
+
+for(let currency in rates){
+let opt1 = document.createElement("option");
+opt1.value = currency;
+opt1.text = currency;
+from.add(opt1);
+
+let opt2 = document.createElement("option");
+opt2.value = currency;
+opt2.text = currency;
+to.add(opt2);
+}
+
+// 🔁 CONVERT FUNCTION
+function convert(){
+let amount = document.getElementById("amount").value;
+
+if(amount==""){
+result.innerText="Enter amount";
+return;
+}
+
+let fromCurrency = from.value;
+let toCurrency = to.value;
+
+let usd = amount / rates[fromCurrency];
+let final = usd * rates[toCurrency];
+
+document.getElementById("result").innerText =
+amount + " " + fromCurrency + " = " + final.toFixed(2) + " " + toCurrency;
+}
+
+</script>
+
+</body>
+  </html>
+</script>

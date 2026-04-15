@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>BMI Calculator</title>
+
+<style>
+body{
+font-family:Arial;
+background:#0f172a;
+color:#fff;
+margin:0;
+}
+
+.box{
+max-width:600px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:#1e293b;
+padding:20px;
+border-radius:12px;
+text-align:center;
+}
+
+input,button{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{
+background:#38bdf8;
+font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<div class="card">
+
+<h2>BMI Calculator</h2>
+
+<input type="number" id="weight" placeholder="Weight (kg)">
+<input type="number" id="height" placeholder="Height (cm)">
+
+<button onclick="calculateBMI()">Calculate</button>
+
+<p id="result"></p>
+
+<p id="status"></p>
+
+<button onclick="history.back()">Back</button>
+
+</div>
+</div>
+
+<script>
+function calculateBMI(){
+
+let weight = document.getElementById("weight").value;
+let height = document.getElementById("height").value;
+
+if(weight=="" || height==""){
+document.getElementById("result").innerText="Enter all values";
+return;
+}
+
+height = height / 100;
+
+let bmi = weight / (height * height);
+
+document.getElementById("result").innerText = "BMI: " + bmi.toFixed(2);
+
+let status = "";
+
+if(bmi < 18.5){
+status = "Underweight";
+}
+else if(bmi >= 18.5 && bmi < 25){
+status = "Normal";
+}
+else if(bmi >= 25 && bmi < 30){
+status = "Overweight";
+}
+else{
+status = "Obese";
+}
+
+document.getElementById("status").innerText = status;
+
+}
+</script>
+
+</body>
+</html>

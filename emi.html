@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Unit Converter</title>
+
+<style>
+body{font-family:Arial;background:#0f172a;color:#fff;margin:0;}
+.box{max-width:600px;margin:auto;padding:20px;}
+.card{background:#1e293b;padding:20px;border-radius:12px;text-align:center;}
+
+input,select,button{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:none;
+border-radius:8px;
+}
+
+button{background:#38bdf8;font-weight:bold;}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+<div class="card">
+
+<h2>Unit Converter</h2>
+
+<input type="number" id="val">
+
+<select id="from">
+<option value="m">Meter</option>
+<option value="cm">CM</option>
+<option value="km">KM</option>
+</select>
+
+<select id="to">
+<option value="m">Meter</option>
+<option value="cm">CM</option>
+<option value="km">KM</option>
+</select>
+
+<button onclick="conv()">Convert</button>
+
+<p id="result"></p>
+
+<button onclick="history.back()">Back</button>
+
+</div>
+</div>
+
+<script>
+function conv(){
+let v=val.value;
+let r=v;
+
+if(from.value=="m" && to.value=="cm") r=v*100;
+if(from.value=="cm" && to.value=="m") r=v/100;
+
+result.innerText=r;
+}
+</script>
+
+</body>
+  </html>
