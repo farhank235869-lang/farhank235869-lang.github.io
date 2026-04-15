@@ -252,5 +252,19 @@ function toggleMenu(){
   </p>
 
 </div>
+  <script>
+window.onload = function() {
+  let splash = document.getElementById("splash");
+
+  if(localStorage.getItem("visited")){
+    splash.style.display = "none";
+  } else {
+    localStorage.setItem("visited", "true");
+    setTimeout(() => {
+      splash.style.display = "none";
+    }, 3000);
+  }
+}
+  </script>
 </body>
   </html>
