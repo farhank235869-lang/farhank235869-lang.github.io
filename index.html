@@ -225,11 +225,17 @@ cursor:pointer;
 <a href="unit.html"><button>Open Unit Converter</button></a>
 <p>Convert units like length, weight.</p>
 <p>Temperature and more supported.</p>
-</div>
+  </div>
+<script>
+function toggleMenu(){
+  let menu = document.getElementById("sideMenu");
 
-</div>
-
-
-
+  if(menu.style.left === "0px"){
+    menu.style.left = "-250px";
+  } else {
+    menu.style.left = "0px";
+  }
+}
+</script>
 </body>
   </html>
